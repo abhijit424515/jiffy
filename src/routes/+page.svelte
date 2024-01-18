@@ -14,7 +14,8 @@
 			z = await get_file(path);
 			sessionStorage.setItem(path, z);
 		}
-		window.open(z, '_blank').focus();
+    sessionStorage.setItem("$viewer", z);
+		window.open(`viewer`, '_blank').focus();
 	}
 </script>
 
