@@ -20,11 +20,14 @@
 	}
 </script>
 
-<div class="h-screen w-full flex flex-col items-center p-8">
-	<div class="mb-8 font-bold">My Files</div>
-	<div class="flex flex-col items-center gap-4">
+<div class="h-max w-full flex flex-col items-center p-8">
+	<div class="mb-8 font-bold text-3xl">My Files</div>
+	<div class="flex flex-col justify-center items-center gap-6">
 		{#each files as path}
-			<button on:click={async () => await get_url(path)}>{path}</button>
+			<button on:click={async () => await get_url(path)} class='border-[2px] border-gray-100 px-4 py-2 rounded-2xl'>
+        <div class="text-blue-500 text-[1.2rem]">{path.split("/")[path.split("/").length-1]}</div>
+        <div class="text-gray-300 text-xs">{path}</div>
+      </button>
 		{/each}
 	</div>
 </div>
