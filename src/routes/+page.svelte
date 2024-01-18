@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { list_files, get_file } from '$lib/index.js';
+	import { goto } from '$app/navigation';
 
 	let files = [];
 	onMount(async () => {
@@ -14,8 +15,8 @@
 			z = await get_file(path);
 			sessionStorage.setItem(path, z);
 		}
-    sessionStorage.setItem("$viewer", z);
-		window.open(`viewer`, '_blank').focus();
+		sessionStorage.setItem('$viewer', z);
+		goto(`/viewer`, { replaceState: false });
 	}
 </script>
 
